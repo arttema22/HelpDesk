@@ -1,0 +1,21 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+body {
+    padding-top: 4.5rem;
+}
+
+.hero {
+    color: #fff;
+    background: #2093CA;
+}
+
+.hero h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+}
