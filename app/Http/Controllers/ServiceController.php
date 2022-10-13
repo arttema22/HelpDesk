@@ -11,7 +11,7 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        return view('service.ticket');
+        return view('service.new');
     }
 
     public function send(ServiceFormRequest $message)

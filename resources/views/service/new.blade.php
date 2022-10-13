@@ -9,9 +9,12 @@
     @csrf
     @include('inc.fields.fio')
     @include('inc.fields.address')
-    @include('inc.fields.phone')
-    @include('inc.fields.email')
+    <div class="row">
+        @include('inc.fields.phone')
+        @include('inc.fields.email')
+    </div>
     @include('inc.fields.services')
+    @include('inc.fields.message')
     @include('inc.fields.personaldata')
     @include('inc.fields.btn-submit')
 </form>

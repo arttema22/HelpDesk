@@ -11,7 +11,7 @@ class ReceptionController extends Controller
 {
     public function index()
     {
-        return view('ticket.new');
+        return view('reception.new');
     }
 
     public function send(TicketFormRequest $message)
@@ -22,6 +22,6 @@ class ReceptionController extends Controller
         Mail::to($toEmail)
             ->cc($moreUsers)
             ->send(new NewTicket($message));
-        return view('ticket.success');
+        return view('reception.success');
     }
 }
