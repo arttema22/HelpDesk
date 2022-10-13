@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ReceptionController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\AdminServiceContriller;
+use App\Http\Controllers\Admin\AdminRoleContriller;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +29,5 @@ Route::post('/reception/ticket', [ReceptionController::class, 'send'])->name('re
 Route::get('/service/ticket', [ServiceController::class, 'index'])->name('service.ticket');
 Route::post('/service/ticket', [ServiceController::class, 'send'])->name('service.send');
 
-Route::get('/admin/role', [RoleController::class, 'index'])->name('role');
+Route::get('/admin/service', [AdminServiceContriller::class, 'index'])->name('admin.service');
+Route::get('/admin/role', [AdminRoleContriller::class, 'index'])->name('admin.role');
