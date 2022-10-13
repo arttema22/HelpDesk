@@ -30,7 +30,7 @@ class NewTicket extends Mailable
     public function build()
     {
         return $this
-            ->subject('Обращение с сайта')
+            ->subject('Новое обращение с сайта')
             ->view('emails.ticket.new', ['mess' => $this->mess]);
     }
 }

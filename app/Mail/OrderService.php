@@ -30,7 +30,7 @@ class OrderService extends Mailable
     public function build()
     {
         return $this
-            ->subject('Запрос на услугу')
+            ->subject('Новый запрос на услугу')
             ->view('emails.service.order', ['mess' => $this->mess]);
     }
 }

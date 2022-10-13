@@ -18,6 +18,9 @@ class ServiceController extends Controller
 
     public function send(ServiceFormRequest $message)
     {
+        $ServiceName = Service::find($message->service_id);
+        $message['service_name'] = $ServiceName->name;
+
         $toEmail = "arttema@mail.ru";
         $moreUsers = "9268188@gmail.com";
 

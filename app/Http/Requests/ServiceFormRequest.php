@@ -28,7 +28,7 @@ class ServiceFormRequest extends FormRequest
             'address' => 'required|max: 255',
             'phone' => 'required|numeric',
             'email' => 'required|email|max: 255',
-            'service_name' => 'required|not_in:0',
+            'service_id' => 'required|not_in:0',
             'personal-date' => 'accepted',
         ];
     }
