@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ServiceFormRequest;
 use App\Mail\OrderService;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Service;
 
 class ServiceController extends Controller
 {
     public function index()
     {
-        return view('service.new');
+        $Services = Service::all();
+        return view('service.new', ['Services' => $Services]);
     }
 
     public function send(ServiceFormRequest $message)
