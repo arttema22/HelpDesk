@@ -1,6 +1,7 @@
 <div class="form-floating mb-3">
-    <select name="service-name" class="form-select" aria-label="Выбор услуги">
-        <option selected>Выбор услуги</option>
+    <select name="service_name" class="form-select @if ($errors->get('service_name')) is-invalid @endif"
+        aria-label="Выбор услуги">
+        <option value="0">Выбор услуги</option>
         <option value="1">Экспертиза документов на соответствие для заключения договора
             энергоснабжения/договора купли-продажи</option>
         <option value="2">Экспертиза документов, предоставляемых для изменения Договора
@@ -17,4 +18,9 @@
             электрической энергии по строящимся (планируемым к
             строительству) многоквартирным домам</option>
     </select>
+    @if ($errors->get('service_name'))
+    @foreach ($errors->get('service_name') as $message)
+    <div class="invalid-feedback">{{$message}}</div>
+    @endforeach
+    @endif
 </div>

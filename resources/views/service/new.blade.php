@@ -2,7 +2,7 @@
 
 @section('title')Запрос на услугу@endsection
 
-@section('description')Здесь можно оформить заявку на дополнительную услугу.@endsection
+@section('description')Здесь можно оформить запрос на дополнительную услугу.@endsection
 
 @section('content')
 <form method="post" action="">

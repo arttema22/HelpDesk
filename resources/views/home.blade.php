@@ -20,7 +20,7 @@
             <div class="card text-center border-primary p-2">
                 <div class="card-body">
                     <h5 class="card-title">Услуги</h5>
-                    <p class="card-text">Оформление заявок на оказание услуг</p>
+                    <p class="card-text">Оформление запроса на оказание услуг</p>
                     <a href="{{ route('service.ticket') }}" class="btn btn-primary">Запрос на услугу</a>
                 </div>
             </div>
