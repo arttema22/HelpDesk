@@ -1,4 +1,4 @@
-@extends('layouts.newticket')
+@extends('layouts.app')
 
 @section('title')Запрос на услугу@endsection
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\TicketController;
+use App\Http\Controllers\ReceptionController;
 use App\Http\Controllers\Admin\RoleController;
 
 /*
@@ -21,8 +21,8 @@ use App\Http\Controllers\Admin\RoleController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/ticket', [TicketController::class, 'index'])->name('ticket');
-Route::post('/ticket', [TicketController::class, 'send'])->name('send');
+Route::get('/reception/ticket', [ReceptionController::class, 'index'])->name('reception.ticket');
+Route::post('/reception/ticket', [ReceptionController::class, 'send'])->name('reception.send');
 
 Route::get('/service/ticket', [ServiceController::class, 'index'])->name('service.ticket');
 Route::post('/service/ticket', [ServiceController::class, 'send'])->name('service.send');

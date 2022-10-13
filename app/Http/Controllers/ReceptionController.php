@@ -7,7 +7,7 @@ use App\Http\Requests\TicketFormRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewTicket;
 
-class TicketController extends Controller
+class ReceptionController extends Controller
 {
     public function index()
     {

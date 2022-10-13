@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
 
 <head>
     <meta charset="utf-8">
@@ -21,21 +21,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
-    <div id="app">
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
         @include('inc.navbar')
-        <main class="container-fluid">
-            <div class="px-4 py-5 my-1 text-center hero">
-                <h1 class="display-1 fw-bold">@yield('title')</h1>
-                <div class="col-lg-6 mx-auto">
-                    <p class="lead mb-4">@yield('description')</p>
-                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    </div>
-                </div>
-            </div>
+        <div class="container px-5">
             @yield('content')
-        </main>
-    </div>
+        </div>
+    </main>
+    @include('inc.footer')
 </body>
 
 </html>
