@@ -24,7 +24,7 @@
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
         @include('inc.navbar')
-        <div class="container px-5">
+        <div class="container">
             @yield('content')
         </div>
     </main>

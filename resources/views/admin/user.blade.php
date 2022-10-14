@@ -1,12 +1,12 @@
 @extends('admin.layouts.admin')
 
-@section('title')Список ролей@endsection
+@section('title')Список пользователей@endsection
 
 @section('content')
 <div class="col-12">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Список ролей</h3>
+            <h3 class="card-title">Список пользователей</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -17,17 +17,17 @@
                             aria-describedby="example2_info">
                             <thead>
                                 <tr>
-                                    <th>Название роли</th>
-                                    <th>Права</th>
+                                    <th>Имя</th>
+                                    <th>Роль</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ( $Roles as $Role )
+                                @foreach ( $Users as $User )
                                 <tr>
-                                    <td>{{$Role->name}}</td>
+                                    <td>{{$User->name}}</td>
                                     <td>
-                                        @foreach ( $Role->permissions as $Permission )
-                                        <span class="badge text-bg-primary">{{ $Permission->name }}</span>
+                                        @foreach ( $User->roles as $Role )
+                                        <span class="badge text-bg-primary">{{$Role->name}}</span>
                                         @endforeach
                                     </td>
                                 </tr>

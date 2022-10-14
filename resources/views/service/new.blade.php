@@ -7,15 +7,37 @@
 @section('content')
 <form method="post" action="">
     @csrf
-    @include('inc.fields.fio')
-    @include('inc.fields.address')
     <div class="row">
-        @include('inc.fields.phone')
-        @include('inc.fields.email')
+        <div class="col-md-6">
+            @include('inc.fields.fio')
+        </div>
+        <div class="col-md-6">
+            @include('inc.fields.address')
+        </div>
     </div>
-    @include('inc.fields.services')
-    @include('inc.fields.message')
-    @include('inc.fields.personaldata')
+    <div class="row">
+        <div class="col-md-6">
+            @include('inc.fields.phone')
+        </div>
+        <div class="col-md-6">
+            @include('inc.fields.email')
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @include('inc.fields.services')
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @include('inc.fields.message')
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @include('inc.fields.personaldata')
+        </div>
+    </div>
     @include('inc.fields.btn-submit')
 </form>
 @endsection
