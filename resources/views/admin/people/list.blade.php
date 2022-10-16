@@ -14,35 +14,28 @@
             <thead>
                 <tr>
                     <th style="width: 1%">#</th>
-                    <th style="width: 20%">Имя</th>
+                    <th style="width: 20%">ФИО</th>
+                    <th style="width: 20%">Лицевой счет</th>
                     <th style="width: 30%">Адрес</th>
                     <th>Телефон</th>
                     <th style="width: 8%" class="text-center">e-mail</th>
-                    <th>Источник</th>
                     <th style="width: 20%"></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ( $Appeals as $Appeal )
+                @foreach ( $People as $Person )
                 <tr>
                     <td> # </td>
-                    <td>
-                        <a> {{ $Appeal->name }} </a>
-                        <br>
-                        <small> Создано {{ $Appeal->created_at }} </small>
+                    <td><a href="{{ route('admin.people.card', $Person->id ) }}">{{ $Person->last_name }} {{
+                            $Person->first_name }} {{ $Person->patronymic }}</a>
                     </td>
-                    <td>{{ $Appeal->address }} </td>
-                    <td>{{ $Appeal->phone }} </td>
-                    <td>{{ $Appeal->email }} </td>
-                    <td class="project-state">
-                        @if ($Appeal->source == 1)
-                        <span class="badge badge-success">Письмо</span>
-                        @endif
-                    </td>
+                    <td>{{ $Person->ls }} </td>
+                    <td>{{ $Person->address }} </td>
+                    <td>{{ $Person->phone }} </td>
+                    <td>{{ $Person->email }} </td>
                     <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="{{ route('admin.reception.card', $Appeal->id ) }}"><i
+                        <a class="btn btn-primary btn-sm" href="{{ route('admin.people.card', $Person->id ) }}"><i
                                 class="fas fa-folder"></i> Открыть </a>
-                        <a class="btn btn-danger btn-sm" href="#"> <i class="fas fa-trash"> </i> Удалить </a>
                     </td>
                 </tr>
                 @endforeach

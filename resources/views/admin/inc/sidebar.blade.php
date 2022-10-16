@@ -23,7 +23,13 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ route('admin.reception') }}" class="nav-link {{ Request::is('admin/reception') ? "
+                    <a href="{{ route('admin.people') }}" class="nav-link {{ Request::is('admin/people*') ? " active"
+                        : "" }}"><i class="fas fa-user nav-icon"></i>
+                        <p>Персоны</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.reception') }}" class="nav-link {{ Request::is('admin/reception*') ? "
                         active" : "" }}"><i class="fas fa-copy nav-icon"></i>
                         <p>Обращения</p>
                     </a>

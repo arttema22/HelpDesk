@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminUserContriller;
 use App\Http\Controllers\Admin\AdminContriller;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\AdminReceptionContriller;
+use App\Http\Controllers\Admin\AdminPeopleContriller;
 use App\Http\Controllers\Auth\LoginController;
 
 /*
@@ -52,7 +53,10 @@ Route::get('/service/ticket', [ServiceController::class, 'index'])->name('servic
 Route::post('/service/ticket', [ServiceController::class, 'send'])->name('service.send');
 
 Route::get('/admin', [AdminContriller::class, 'index'])->name('admin');
+Route::get('/admin/people', [AdminPeopleContriller::class, 'index'])->name('admin.people');
+Route::get('/admin/people/{id}', [AdminPeopleContriller::class, 'card'])->name('admin.people.card');
 Route::get('/admin/reception', [AdminReceptionContriller::class, 'index'])->name('admin.reception');
+Route::get('/admin/reception/{id}', [AdminReceptionContriller::class, 'card'])->name('admin.reception.card');
 Route::get('/admin/service', [AdminServiceContriller::class, 'index'])->name('admin.service');
 Route::get('/admin/role', [AdminRoleContriller::class, 'index'])->name('admin.role');
 Route::get('/admin/permission', [AdminPermissionContriller::class, 'index'])->name('admin.permission');

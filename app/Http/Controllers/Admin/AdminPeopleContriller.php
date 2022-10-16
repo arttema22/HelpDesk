@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Admin\Appeal;
+use App\Models\Admin\People;
 
-class AdminReceptionContriller extends Controller
+class AdminPeopleContriller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,16 +15,15 @@ class AdminReceptionContriller extends Controller
      */
     public function index()
     {
-        $Appeals = Appeal::all();
-        return view('admin.reception.list', ['Appeals' => $Appeals]);
+        $People = People::all();
+        return view('admin.people.list', ['People' => $People]);
     }
 
     public function card($id)
     {
-        $Appeal = Appeal::find($id);
-        return view('admin.reception.card', ['Appeal' => $Appeal]);
+        $People = People::find($id);
+        return view('admin.people.card', ['People' => $People]);
     }
-
 
     /**
      * Show the form for creating a new resource.

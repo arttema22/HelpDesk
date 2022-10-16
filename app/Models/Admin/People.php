@@ -5,12 +5,12 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Appeal extends Model
+class People extends Model
 {
     use HasFactory;
 
-    public function people()
+    public function appeal()
     {
-        return $this->belongsTo(People::class);
+        return $this->hasMany(Appeal::class);
     }
 }
