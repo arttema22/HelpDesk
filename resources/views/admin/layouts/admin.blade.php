@@ -82,14 +82,7 @@
 
             <!-- Main content -->
             <section class="content">
-                <div class="container-fluid">
-
-                    <!-- Main row -->
-                    <div class="row">
-                        @yield('content')
-                    </div>
-                    <!-- /.row (main row) -->
-                </div><!-- /.container-fluid -->
+                @yield('content')
             </section>
             <!-- /.content -->
         </div>
