@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\AdminContriller;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\AdminReceptionContriller;
 use App\Http\Controllers\Admin\AdminPeopleContriller;
+use App\Http\Controllers\Admin\AdminBuildingContriller;
 use App\Http\Controllers\Auth\LoginController;
 
 /*
@@ -53,6 +54,9 @@ Route::get('/service/ticket', [ServiceController::class, 'index'])->name('servic
 Route::post('/service/ticket', [ServiceController::class, 'send'])->name('service.send');
 
 Route::get('/admin', [AdminContriller::class, 'index'])->name('admin');
+Route::get('/admin/building', [AdminBuildingContriller::class, 'index'])->name('admin.building');
+Route::get('/admin/building/{id}', [AdminBuildingContriller::class, 'card'])->name('admin.building.card');
+
 Route::get('/admin/people', [AdminPeopleContriller::class, 'index'])->name('admin.people');
 Route::get('/admin/people/{id}', [AdminPeopleContriller::class, 'card'])->name('admin.people.card');
 Route::post('/admin/people/{id}', [AdminPeopleContriller::class, 'send'])->name('admin.people.send');

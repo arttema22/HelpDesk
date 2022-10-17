@@ -23,6 +23,12 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
+                    <a href="{{ route('admin.building') }}" class="nav-link {{ Request::is('admin/building*') ? "
+                        active" : "" }}"><i class="fas fa-user nav-icon"></i>
+                        <p>Объекты</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.people') }}" class="nav-link {{ Request::is('admin/people*') ? " active"
                         : "" }}"><i class="fas fa-user nav-icon"></i>
                         <p>Персоны</p>

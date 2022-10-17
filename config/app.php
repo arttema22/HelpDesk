@@ -15,6 +15,12 @@ return [
 
     'name' => env('APP_NAME', 'Служба поддержки'),
 
+    'date_date' => 'd.m.Y',
+    'date_time' => 'H:i',
+    'date_full' => 'd.m.Y в H:i',
+
+    'date_format_to_db' => 'Y-m-d',
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

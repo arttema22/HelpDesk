@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 
-@section('title')Список обращений@endsection
+@section('title')Список объектов@endsection
 
 @section('content')
 <!-- Default box -->
@@ -13,20 +13,20 @@
         <table class="table table-striped projects">
             <thead>
                 <tr>
-                    <th>ФИО</th>
-                    <th style="width: 20%">Телефон</th>
-                    <th style="width: 8%" class="text-center">e-mail</th>
+                    <th style="width: 20%">Название</th>
+                    <th style="width: 20%">Лицевой счет</th>
+                    <th style="width: 30%">Адрес</th>
                     <th style="width: 20%"></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ( $People as $Person )
+                @foreach ( $Building as $Building )
                 <tr>
-                    <td><a href="{{ route('admin.people.card', $Person->id ) }}">{{ $Person->full_name }}</a></td>
-                    <td>{{ $Person->phone }} </td>
-                    <td>{{ $Person->email }} </td>
+                    <td><a href="{{ route('admin.building.card', $Building->id ) }}">{{ $Building->title }}</a></td>
+                    <td>{{ $Building->ls }} </td>
+                    <td>{{ $Building->address }} </td>
                     <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="{{ route('admin.people.card', $Person->id ) }}"><i
+                        <a class="btn btn-primary btn-sm" href="{{ route('admin.building.card', $Building->id ) }}"><i
                                 class="fas fa-folder"></i> Открыть </a>
                     </td>
                 </tr>
