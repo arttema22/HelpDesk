@@ -1,5 +1,5 @@
 <div class="form-floating mb-3">
-    <input type="text" name="phone" class="form-control
+    <input type="tel" name="phone" data-tel-input class="form-control
                             @if ($errors->get('phone')) is-invalid @endif" id="phone" placeholder="Номер телефона"
         value="{{old('phone')}}">
     <label for="phone">Номер телефона</label>

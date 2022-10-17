@@ -18,10 +18,6 @@ class CreateAppealsTable extends Migration
             $table->timestamps();
             $table->BigInteger('people_id')->unsigned();
             $table->foreign('people_id')->references('id')->on('people');
-            $table->string('name');
-            $table->string('address');
-            $table->string('phone');
-            $table->string('email');
             $table->text('message');
             $table->integer('source');
             $table->integer('type');

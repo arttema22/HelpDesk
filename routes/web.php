@@ -55,6 +55,7 @@ Route::post('/service/ticket', [ServiceController::class, 'send'])->name('servic
 Route::get('/admin', [AdminContriller::class, 'index'])->name('admin');
 Route::get('/admin/people', [AdminPeopleContriller::class, 'index'])->name('admin.people');
 Route::get('/admin/people/{id}', [AdminPeopleContriller::class, 'card'])->name('admin.people.card');
+Route::post('/admin/people/{id}', [AdminPeopleContriller::class, 'send'])->name('admin.people.send');
 Route::get('/admin/reception', [AdminReceptionContriller::class, 'index'])->name('admin.reception');
 Route::get('/admin/reception/{id}', [AdminReceptionContriller::class, 'card'])->name('admin.reception.card');
 Route::get('/admin/service', [AdminServiceContriller::class, 'index'])->name('admin.service');

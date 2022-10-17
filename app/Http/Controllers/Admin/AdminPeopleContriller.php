@@ -25,6 +25,11 @@ class AdminPeopleContriller extends Controller
         return view('admin.people.card', ['People' => $People]);
     }
 
+    public function send(Request $request)
+    {
+        dd($request);
+        return view('admin.people.list');
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -8,10 +8,21 @@
 <form method="post" action="">
     @csrf
     <div class="row">
-        <div class="col-md-6">
-            @include('inc.fields.fio')
+        <div class="col-md-4">
+            @include('inc.fields.lastName')
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
+            @include('inc.fields.firstName')
+        </div>
+        <div class="col-md-4">
+            @include('inc.fields.patronymic')
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            @include('inc.fields.ls')
+        </div>
+        <div class="col-md-8">
             @include('inc.fields.address')
         </div>
     </div>
