@@ -4,14 +4,14 @@ namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
 
 class People extends Model
 {
     use HasFactory;
 
     /**
-     * Объекты, принадлежащие человеку
+     * Объекты, принадлежащие персоне
      */
     public function building()
     {
@@ -19,13 +19,45 @@ class People extends Model
             ->as('building');
     }
 
+    /**
+     * Обращения, принадлежащие персоне
+     */
     public function appeal()
     {
         return $this->hasMany(Appeal::class);
     }
 
+    /**
+     * Аксессор
+     * Получить полностью ФИО
+     */
     public function getFullNameAttribute()
     {
         return $this->last_name . ' ' . $this->first_name . ' ' . $this->patronymic;
+    }
+
+    /**
+     * Мутатор
+     * Присвоить Имени форматирование - с большой буквы
+     */
+    public function setFirstNameAttribute($value)
+    {
+        $this->attributes['first_name'] = Str::ucfirst(Str::lower($value));
+    }
+    /**
+     * Мутатор
+     * Присвоить Фамилии форматирование - с большой буквы
+     */
+    public function setLastNameAttribute($value)
+    {
+        $this->attributes['last_name'] = Str::ucfirst(Str::lower($value));
+    }
+    /**
+     * Мутатор
+     * Присвоить Отчество форматирование - с большой буквы
+     */
+    public function setPatronymicAttribute($value)
+    {
+        $this->attributes['patronymic'] = Str::ucfirst(Str::lower($value));
     }
 }

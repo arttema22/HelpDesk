@@ -15,6 +15,11 @@ class Appeal extends Model
         return $this->belongsTo(People::class);
     }
 
+    public function getDateTimeAttribute()
+    {
+        return Carbon::parse($this->created_at)->format(config('app.date_full'));
+    }
+
     public function getDateAttribute()
     {
         return Carbon::parse($this->created_at)->format(config('app.date_date'));
@@ -23,5 +28,11 @@ class Appeal extends Model
     public function getTimeAttribute()
     {
         return Carbon::parse($this->created_at)->format(config('app.date_time'));
+    }
+
+    public function getTypeAttribute($value)
+    {
+        if ($value == 0) return 'Входящее';
+        return 'Исходящее';
     }
 }
