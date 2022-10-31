@@ -10,6 +10,13 @@ class Building extends Model
     use HasFactory;
 
     /**
+     * Обращения, принадлежащие объекту
+     */
+    public function ticket()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+    /**
      * Люди, принадлежащие объекту
      */
     public function people()

@@ -24,7 +24,7 @@
                             <tbody>
                                 @foreach ( $Users as $User )
                                 <tr>
-                                    <td>{{$User->name}}</td>
+                                    <td>{{$User->full_name}}</td>
                                     <td>
                                         @foreach ( $User->roles as $Role )
                                         <span class="badge text-bg-primary">{{$Role->name}}</span>

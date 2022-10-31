@@ -15,16 +15,15 @@ class People extends Model
      */
     public function building()
     {
-        return $this->belongsToMany(Building::class)
-            ->as('building');
+        return $this->belongsToMany(Building::class)->as('buildings');
     }
 
     /**
      * Обращения, принадлежащие персоне
      */
-    public function appeal()
+    public function ticket()
     {
-        return $this->hasMany(Appeal::class);
+        return $this->hasMany(Ticket::class);
     }
 
     /**

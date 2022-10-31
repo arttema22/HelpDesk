@@ -1,20 +1,13 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Traits;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Role;
+use App\Models\Permission;
 use Illuminate\Support\Carbon;
 
-class Appeal extends Model
+trait HasDateFormat
 {
-    use HasFactory;
-
-    public function people()
-    {
-        return $this->belongsTo(People::class);
-    }
-
     public function getDateTimeAttribute()
     {
         return Carbon::parse($this->created_at)->format(config('app.date_full'));
@@ -28,11 +21,5 @@ class Appeal extends Model
     public function getTimeAttribute()
     {
         return Carbon::parse($this->created_at)->format(config('app.date_time'));
-    }
-
-    public function getTypeAttribute($value)
-    {
-        if ($value == 0) return 'Входящее';
-        return 'Исходящее';
     }
 }

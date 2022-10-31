@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NewTicket extends Mailable
+class AnswerTicket extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,7 +30,7 @@ class NewTicket extends Mailable
     public function build()
     {
         return $this
-            ->subject('Новое обращение с сайта')
-            ->view('emails.ticket.NewTicket', ['mess' => $this->mess]);
+            ->subject('Ответ на Ваше обращение')
+            ->view('emails.ticket.AnswerTicket');
     }
 }

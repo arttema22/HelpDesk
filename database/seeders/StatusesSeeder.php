@@ -19,7 +19,7 @@ class StatusesSeeder extends Seeder
         $status1->save();
 
         $status2 = new Status();
-        $status2->title = 'В работе';
+        $status2->title = 'Дан ответ';
         $status2->save();
 
         $status3 = new Status();

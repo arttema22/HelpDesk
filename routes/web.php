@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\AdminReceptionContriller;
 use App\Http\Controllers\Admin\AdminPeopleContriller;
 use App\Http\Controllers\Admin\AdminBuildingContriller;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\TicketController;
+use App\Models\Message;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,30 +31,20 @@ use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Маршрут регистрации нового пользователя
-Route::get('/registration', function () {
-    if (Auth::check()) { // Если пользователь уже аутентифицирован, то на приват его
-        return redirect(route('admin'));
-    }
-    return view('auth.register');
-})->name('registration');
-
-Route::post('/registration', [RegisterController::class, 'create'])->name('create');
-
-Route::get('/login', function () {
-    if (Auth::check()) { // Если пользователь уже аутентифицирован, то на приват его
-        return redirect(route('admin'));
-    }
-    return view('auth.login'); // На страницу входа
-})->name('login');
+require __DIR__ . '/auth.php';
 
 
-Route::get('/reception/ticket', [ReceptionController::class, 'index'])->name('reception.ticket');
-Route::post('/reception/ticket', [ReceptionController::class, 'send'])->name('reception.send');
+Route::get('/reception/ticket', [TicketController::class, 'index'])->name('reception.ticket');
+Route::post('/reception/ticket', [TicketController::class, 'send'])->name('reception.send');
+Route::get('/reception/{id}', [TicketController::class, 'show'])->name('reception.show');
+
+
+
 
 Route::get('/service/ticket', [ServiceController::class, 'index'])->name('service.ticket');
 Route::post('/service/ticket', [ServiceController::class, 'send'])->name('service.send');
 
+// Группа маршрутов Админка
 Route::get('/admin', [AdminContriller::class, 'index'])->name('admin');
 Route::get('/admin/building', [AdminBuildingContriller::class, 'index'])->name('admin.building');
 Route::get('/admin/building/{id}', [AdminBuildingContriller::class, 'card'])->name('admin.building.card');
@@ -62,6 +54,7 @@ Route::get('/admin/people/{id}', [AdminPeopleContriller::class, 'card'])->name('
 Route::post('/admin/people/{id}', [AdminPeopleContriller::class, 'send'])->name('admin.people.send');
 Route::get('/admin/reception', [AdminReceptionContriller::class, 'index'])->name('admin.reception');
 Route::get('/admin/reception/{id}', [AdminReceptionContriller::class, 'card'])->name('admin.reception.card');
+Route::post('/admin/reception/{id}', [AdminReceptionContriller::class, 'answer'])->name('admin.answer');
 Route::get('/admin/service', [AdminServiceContriller::class, 'index'])->name('admin.service');
 Route::get('/admin/role', [AdminRoleContriller::class, 'index'])->name('admin.role');
 Route::get('/admin/permission', [AdminPermissionContriller::class, 'index'])->name('admin.permission');

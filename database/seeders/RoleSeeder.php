@@ -20,7 +20,7 @@ class RoleSeeder extends Seeder
         $manager->save();
         $developer = new Role();
         $developer->name = 'Руководитель';
-        $developer->slug = 'top-manager';
+        $developer->slug = 'manager';
         $developer->save();
     }
 }

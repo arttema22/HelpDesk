@@ -36,6 +36,11 @@
     </div>
     <div class="row">
         <div class="col-md-12">
+            @include('inc.fields.title')
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             @include('inc.fields.message')
         </div>
     </div>

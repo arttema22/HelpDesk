@@ -39,7 +39,7 @@ return [
     'declined' => 'The :attribute must be declined.',
     'declined_if' => 'The :attribute must be declined when :other is :value.',
     'different' => 'The :attribute and :other must be different.',
-    'digits' => 'The :attribute must be :digits digits.',
+    'digits' => 'В поле ":attribute" должно быть :digits цифр.',
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'The :attribute has invalid image dimensions.',
     'distinct' => 'The :attribute field has a duplicate value.',
@@ -83,7 +83,7 @@ return [
     ],
     'mac_address' => 'The :attribute must be a valid MAC address.',
     'max' => [
-        'numeric' => 'The :attribute must not be greater than :max.',
+        'numeric' => 'В поле ":attribute" должно быть не более :max цифр.',
         'file' => 'The :attribute must not be greater than :max kilobytes.',
         'string' => 'The :attribute must not be greater than :max characters.',
         'array' => 'The :attribute must not have more than :max items.',
@@ -99,7 +99,7 @@ return [
     'multiple_of' => 'The :attribute must be a multiple of :value.',
     'not_in' => 'Необходимо совершить :attribute.',
     'not_regex' => 'The :attribute format is invalid.',
-    'numeric' => 'The :attribute must be a number.',
+    'numeric' => 'Поле ":attribute" должно содержать только цифры.',
     'password' => 'The password is incorrect.',
     'present' => 'The :attribute field must be present.',
     'prohibited' => 'The :attribute field is prohibited.',
@@ -125,7 +125,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid timezone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique' => 'Такой :attribute уже существует.',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
@@ -160,12 +160,17 @@ return [
 
     'attributes' => [
         'name' => 'Фамилия Имя Отчество',
+        'last_name' => 'Фамилия',
+        'first_name' => 'Имя',
         'address' => 'Адрес объекта',
         'phone' => 'Номер телефона',
         'email' => 'Адрес электронной почты',
         'service_id' => 'Выбор услуги',
         'message' => 'Сообщение',
+        'title' => 'Тема',
         'personal-date' => 'Согласие',
+        'password' => 'Пароль',
+        'ls' => 'Лицевой счет',
     ],
 
 ];

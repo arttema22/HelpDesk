@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use CreateRolesPermissionsTable;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,8 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(ServiceSeeder::class);
         $this->call(PeopleSeeder::class);
-        $this->call(AppealSeeder::class);
         $this->call(StatusesSeeder::class);
         $this->call(BuildingSeeder::class);
+        $this->call(RolePermissionSeeder::class);
     }
 }
