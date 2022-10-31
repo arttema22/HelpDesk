@@ -18,6 +18,10 @@ class CreateMessagesTable extends Migration
             $table->timestamps();
             $table->BigInteger('ticket_id')->unsigned();
             $table->foreign('ticket_id')->references('id')->on('tickets');
+            $table->BigInteger('owner_id')->unsigned();
+            $table->foreign('owner_id')->references('id')->on('users');
+            $table->BigInteger('type_id')->unsigned();
+            $table->foreign('type_id')->references('id')->on('type_contacts');
             $table->text('message');
             $table->softDeletes();
         });
