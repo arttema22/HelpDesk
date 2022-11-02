@@ -31,6 +31,6 @@ class AdminNewTicket extends Mailable
     {
         return $this
             ->subject('Новое обращение с сайта')
-            ->view('emails.ticket.AdminNewTicket', ['mess' => $this->mess]);
+            ->view('emails.ticket.AdminNewTicket');
     }
 }

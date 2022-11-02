@@ -9,6 +9,7 @@ use App\Models\Ticket;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AdminNewTicket;
 use App\Mail\NewTicket;
+use stdClass;
 
 class TicketController extends Controller
 {
@@ -41,14 +42,25 @@ class TicketController extends Controller
         $Ticket->status_id = 1;
         $Ticket->save();
 
+        $sendData = new stdClass();
+        $sendData->user = $Ticket->people->FullName;
+        $sendData->ls = $Ticket->building->ls;
+        $sendData->address = $Ticket->building->address;
+        $sendData->phone = $Ticket->people->phone;
+        $sendData->email = $Ticket->people->email;
+        $sendData->ticket_title = $Ticket->title;
+        $sendData->message = $Ticket->message;
+        $sendData->ticket_url = route('reception.show', $Ticket->id);
+        $sendData->admin_ticket_url = route('admin.reception.card', $Ticket->id);
+
         $toEmail = "arttema2010@yandex.ru";
         $moreUsers = "9268188@gmail.com";
         Mail::to($toEmail)
             ->cc($moreUsers)
-            ->send(new AdminNewTicket($message));
+            ->send(new AdminNewTicket($sendData));
 
         Mail::to($Person->email)
-            ->send(new NewTicket($message));
+            ->send(new NewTicket($sendData));
 
         return view('reception.success');
     }
