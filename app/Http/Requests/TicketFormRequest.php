@@ -24,8 +24,8 @@ class TicketFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'last_name' => 'required|max: 255',
             'first_name' => 'required|max: 255',
+            'last_name' => 'required|max: 255',
             'ls' => 'required|numeric|digits: 10',
             'address' => 'required|max: 255',
             'phone' => 'required',

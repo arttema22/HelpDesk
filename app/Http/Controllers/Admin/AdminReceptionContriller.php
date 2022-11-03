@@ -30,23 +30,24 @@ class AdminReceptionContriller extends Controller
 
     public function answer(AnswerRequest $message, $id)
     {
-
         $Answer = new Message();
         $Answer->ticket_id = $id;
+        $Answer->owner_id = $id;
+        $Answer->type_id = 2;
         $Answer->message = $message->Input('message');
         $Answer->save();
         $Ticket = Ticket::find($id);
         $Ticket->status_id = 2;
         $Ticket->save();
 
-
         $toEmail = "arttema2010@yandex.ru";
         $moreUsers = "9268188@gmail.com";
+
         $sendData = new stdClass();
-        $sendData->message = $message->Input('message');
+        $sendData->answer = $Answer->message;
         $sendData->user = $Ticket->people->FullName;
         $sendData->ticket_title = $Ticket->title;
-        $sendData->ticket_text = $Ticket->message;
+        $sendData->message = $Ticket->message;
         $sendData->ticket_url = route('reception.show', $Ticket->id);
         Mail::to($toEmail)
             ->cc($moreUsers)

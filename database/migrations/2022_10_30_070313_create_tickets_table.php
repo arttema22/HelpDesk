@@ -20,6 +20,13 @@ class CreateTicketsTable extends Migration
             $table->foreign('people_id')->references('id')->on('people');
             $table->BigInteger('building_id')->unsigned();
             $table->foreign('building_id')->references('id')->on('buildings');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('patronymic')->nullable();
+            $table->integer('ls');
+            $table->string('address');
+            $table->string('phone');
+            $table->string('email');
             $table->string('title');
             $table->text('message');
             $table->integer('source');

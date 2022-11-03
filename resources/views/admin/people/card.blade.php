@@ -57,7 +57,7 @@
                     <div class="tab-pane active" id="timeline">
                         <!-- The timeline -->
                         <div class="timeline timeline-inverse">
-                            @foreach ( $People->appeal->sortByDesc('created_at') as $Appeal )
+                            @foreach ( $People->ticket as $Appeal )
                             <div class="time-label">
                                 <span class="bg-success">
                                     {{ $Appeal->date }}

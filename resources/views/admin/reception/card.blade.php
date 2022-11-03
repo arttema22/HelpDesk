@@ -46,26 +46,9 @@
                         <div class="timeline timeline-inverse">
                             <!-- timeline time label -->
                             <div class="time-label">
-                                <span class="bg-danger">{{ $Ticket->date }} </span>
+                                <span class="bg-danger">{{ $Ticket->date }}</span>
                             </div>
                             <!-- /.timeline-label -->
-                            @foreach ( $Ticket->mess as $Message )
-                            <div>
-                                <i class="fas fa-user bg-info"></i>
-
-                                <div class="timeline-item">
-                                    <span class="time"><i class="far fa-clock"></i> {{ $Message->DateTime }}</span>
-
-                                    <h3 class="timeline-header border-0"><a
-                                            href="#">{{$Message->ticket->people->email}}Sarah
-                                            Young</a>
-                                        дал(а)
-                                        ответ:
-                                    </h3>
-                                    {{ $Message->message }}
-                                </div>
-                            </div>
-                            @endforeach
                             <!-- timeline item -->
                             <div>
                                 @if ($Ticket->source == 1)
@@ -74,17 +57,37 @@
                                 <div class="timeline-item">
                                     <span class="time"><i class="far fa-clock"></i> {{ $Ticket->DateTime }}</span>
                                     <h3 class="timeline-header">{{ $Ticket->title }}</h3>
-                                    <form method="post" action="{{ route('admin.answer', $Ticket->id ) }}">
-                                        @csrf
-                                        <div class="timeline-body">
-                                            {{ $Ticket->message }} <br>
+                                    <div class="timeline-body">
+                                        {{ $Ticket->message }}<br><br>
+                                        @foreach ( $Ticket->mess as $Message)
+                                        <div class="timeline timeline-inverse">
+                                            <div>
+                                                <i class="fas fa-envelope bg-primary"></i>
+                                                <div class="timeline-item">
+                                                    <span class="time"><i class="far fa-clock"></i> {{
+                                                        $Message->created_at}}</span>
+                                                    <h3 class="timeline-header">Автор</h3>
+                                                    {{$Message->message}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    <div class="timeline-footer">
+                                        <form method="post" action="{{ route('admin.answer', $Ticket->id ) }}">
+                                            @csrf
                                             Ответ:
                                             @include('inc.fields.message')
-                                        </div>
-                                        <div class="timeline-footer">
                                             @include('inc.fields.btn-submit')
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
+                                    <span class="time">Указаны данные:
+                                        ФИО: {{$Ticket->last_name}} {{$Ticket->first_name}} {{$Ticket->patronymic}}
+                                        Л/С: {{$Ticket->ls}}
+                                        Адрес: {{$Ticket->address}}
+                                        Телефон: {{$Ticket->phone}}
+                                        Почта: {{$Ticket->email}}
+                                    </span>
                                 </div>
                             </div>
                             <!-- END timeline item -->

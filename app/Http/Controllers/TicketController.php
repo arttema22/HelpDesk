@@ -17,6 +17,7 @@ class TicketController extends Controller
     {
         return view('reception.new');
     }
+
     public function send(TicketFormRequest $message)
     {
         $temp = Building::where('ls', $message->Input('ls'))->first();
@@ -35,6 +36,13 @@ class TicketController extends Controller
         $Ticket = new Ticket();
         $Ticket->people_id = $Person->id;
         $Ticket->building_id = $Building->id;
+        $Ticket->first_name = $message->Input('first_name');
+        $Ticket->last_name = $message->Input('last_name');
+        $Ticket->patronymic = $message->Input('patronymic');
+        $Ticket->ls = $message->Input('ls');
+        $Ticket->address = $message->Input('address');
+        $Ticket->phone = $message->Input('phone');
+        $Ticket->email = $message->Input('email');
         $Ticket->title = $message->Input('title');
         $Ticket->message = $message->Input('message');
         $Ticket->source = 1;
