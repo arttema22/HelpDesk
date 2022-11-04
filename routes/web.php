@@ -36,7 +36,10 @@ require __DIR__ . '/auth.php';
 
 Route::get('/reception/ticket', [TicketController::class, 'index'])->name('reception.ticket');
 Route::post('/reception/ticket', [TicketController::class, 'send'])->name('reception.send');
-Route::get('/reception/{id}', [TicketController::class, 'show'])->name('reception.show');
+Route::get('/reception/status', [TicketController::class, 'status'])->name('reception.status');
+Route::post('/reception/status', [TicketController::class, 'result'])->name('reception.result');
+Route::get('/reload-captcha', [TicketController::class, 'reloadCaptcha']);
+
 
 
 

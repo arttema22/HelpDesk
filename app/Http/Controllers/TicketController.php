@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TicketFormRequest;
+use App\Http\Requests\TicketStatusRequest;
 use App\Models\Admin\Building;
 use App\Models\Admin\People;
 use App\Models\Ticket;
@@ -13,11 +14,18 @@ use stdClass;
 
 class TicketController extends Controller
 {
+    /*
+    * Функция показывает страницу с формой ввода обращения
+    */
     public function index()
     {
         return view('reception.new');
     }
 
+    /*
+    * Функция сохраняет обращение в базу
+    * отправляет почтовые сообщения
+    */
     public function send(TicketFormRequest $message)
     {
         $temp = Building::where('ls', $message->Input('ls'))->first();
@@ -73,10 +81,23 @@ class TicketController extends Controller
         return view('reception.success');
     }
 
-    public function show($id)
+    /*
+    * Функция показывает страницу с формой проверки (псевдо аутентификации) пользователя на то, что он имеет право
+    * просмотреть обращение и он не робот (captcha)
+    */
+    public function status()
     {
-        $Ticket = Ticket::find($id);
-        return view('reception.show', ['Ticket' => $Ticket]);
+
+        return view('reception.status');
+    }
+
+    /*
+    * Функция показывает страницу с обращением и ответом для проверенного пользователя
+    */
+    public function result(TicketStatusRequest $message)
+    {
+        //$Ticket = Ticket::find($id);
+        return view('reception.result');
     }
 
     public function createBuilding($message)
@@ -97,5 +118,10 @@ class TicketController extends Controller
         $Person->phone = $message->Input('phone');
         $Person->email = $message->Input('email');
         $Person->save();
+    }
+
+    public function reloadCaptcha()
+    {
+        //  return response()->json(['captcha' => captcha_img()]);
     }
 }
