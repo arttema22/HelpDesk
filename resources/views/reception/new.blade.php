@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title')Новое обращение@endsection
+@section('title')Отправить обращение@endsection
 
 @section('description')Здесь можно оформить обращение в компанию РКС-энерго.@endsection
 

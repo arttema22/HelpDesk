@@ -38,6 +38,9 @@ Route::get('/reception/ticket', [TicketController::class, 'index'])->name('recep
 Route::post('/reception/ticket', [TicketController::class, 'send'])->name('reception.send');
 Route::get('/reception/status', [TicketController::class, 'status'])->name('reception.status');
 Route::post('/reception/status', [TicketController::class, 'result'])->name('reception.result');
+
+
+
 Route::get('/reload-captcha', [TicketController::class, 'reloadCaptcha']);
 
 

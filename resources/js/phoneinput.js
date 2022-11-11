@@ -57,7 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 formattedInputValue += '-' + inputNumbersValue.substring(9, 11);
             }
         } else {
-            formattedInputValue = '+' + inputNumbersValue.substring(0, 16);
+            //ввод любой другой цифры
+            // formattedInputValue = '+' + inputNumbersValue.substring(0, 16);
         }
         input.value = formattedInputValue;
     }

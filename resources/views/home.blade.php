@@ -2,7 +2,10 @@
 
 @section('title')Электронная приемная@endsection
 
-@section('description')Прием обращений и заявок на оказание услуг.@endsection
+@section('description')
+Сервис предоставляет возможность отправить обращение в форме электронного документа и получить информацию о статусе и
+ответе.
+@endsection
 
 @section('content')
 <div class="container my-5">
